@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repositorio Lógico</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <h1>🌟 Repositorio Educativo de Pensamiento Lógico 🌟</h1>
+    <p>
+      Prototipo interactivo para fortalecer el razonamiento lógico y la demostración matemática
+      en estudiantes de grados 6° a 9°.
+    </p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Bienvenido</h2>
+      <p>
+        Explora la biblioteca de recursos y elige las guías. Lee las historias y 
+        actividades, participa en los juegos y luego responde las preguntas de los 
+        módulos. Al finalizar, recibirás una retroalimentación automática y una insignia 
+        según tu resultado.
+
+      </p>
+    </section>
+
+    <section class="biblioteca">
+  <h2>Biblioteca de recursos</h2>
+  <p>
+    En esta sección los estudiantes pueden consultar materiales de apoyo para aprender
+    lógica, razonamiento matemático y demostración preformal.
+  </p>
+
+  <div class="recursos">
+    <div class="recurso-card">
+      <h3>Guía 1: Introducción a la lógica</h3>
+      <p>
+        Aqui vamos a entrar por primera vez al mundo de la lógica matemática. 
+        Para hacerlo, jugaremos con frases que usan palabras como “todos” y 
+        “ningún”, y veremos qué pasa cuando intentamos cambiarlas de orden. 
+        A veces una frase sigue siendo verdadera, pero otras veces deja de 
+        serlo. Por eso aprenderemos a buscar contraejemplos, pequeñas pistas 
+        que nos ayudan a comprobar si una idea realmente funciona.
+      </p>
+      <a href="materiales/guia-1-introduccion-logica.pdf" class="btn-descarga" download>Descargar PDF</a>
+    </div>
+
+    <div class="recurso-card">
+      <h3>Guía 2: Patrones y razonamiento</h3>
+      <p>
+        Aqui viajaremos con Robert y el diablo de los números para descubrir
+         que los números también pueden formar secretos. Observaremos 
+         secuencias, buscaremos patrones y pensaremos qué número podría venir después. 
+         Pero lo más importante no se trata solo de decir “creo que es así”, 
+         sino de contar la razón que nos llevó a pensar eso.
+      </p>
+      <a href="materiales/guia-2-patrones-razonamiento.pdf" class="btn-descarga" download>Descargar PDF</a>
+    </div>
+
+    <div class="recurso-card">
+      <h3>Guía 3: Primeras demostraciones</h3>
+      <p>
+        En esta actividad daremos nuestros primeros pasos para aprender a demostrar. Usaremos frases 
+        sencillas y ejemplos para explicar por qué una afirmación matemática puede ser verdadera o falsa.
+        "Ojo" porque Usaremos lo que hemos aprendido en las guias anteriores.
+
+      </p>
+      <a href="materiales/guia-3-primeras-demostraciones.pdf" class="btn-descarga" download>Descargar PDF</a>
+    </div>
+    </div>
+    </section>
+
+    <section class="zona-retos">
+  <h2>🎮 Zona de retos y juegos</h2>
+  <p>
+     resolver estos juegos  cortos de razonamiento antes de entrar a los módulos.
+  </p>
+
+  <div class="juegos-grid">
+
+    <div class="juego-card">
+      <h3>🕵️ Reto del detective lógico</h3>
+      <p>
+        Si todos los números pares se pueden repartir en dos grupos iguales sin que sobre nada, 
+        y 12 es un número par, ¿qué podemos concluir?
+         <br><br>
+         <em>Recordemos primero la definicion introductoria o intuitiva de numero par: Un número
+        par es un número que se puede repartir en dos grupos iguales sin que sobre nada.</em>
+
+      </p>
+
+      <button onclick="resolverReto('incorrecto')">12 se puede repartir en dos grupos de 5 y 7,
+      porque ambos grupos son iguales</button>
+      <button onclick="resolverReto('correcto')">12 se puede repartir en dos grupos iguales
+      de 6 y 6, sin que sobre nada</button>
+      <button onclick="resolverReto('incorrecto')">12 no se puede repartir en dos grupos iguales.</button>
+
+      <p id="mensajeReto"></p>
+    </div>
+
+    <div class="juego-card">
+      <h3>🧩 Juego: ordena la demostración</h3>
+      <p>
+        Haz clic en los pasos en el orden correcto para demostrar la siguiente frase o afirmación.
+         <i>Todos los números pares terminan en 0.</i>
+      </p>
+
+      <div id="pasosDemostracion">
+        <button class="paso" data-paso="paso4" onclick="seleccionarPaso(this)">
+          Entonces, la afirmación “todos los números pares terminan en 0” es falsa.
+          El número 8 es un contraejemplo.
+        </button>
+
+        <button class="paso" data-paso="paso1" onclick="seleccionarPaso(this)">
+          Leemos la afirmación.
+          La frase dice que todos los números pares deben terminar en 0
+        </button>
+
+        <button class="paso" data-paso="paso3" onclick="seleccionarPaso(this)">
+          Revisamos si cumple la afirmación.
+          El número 8 no termina en 0.
+        </button>
+
+        <button class="paso" data-paso="paso2" onclick="seleccionarPaso(this)">
+          Buscamos un número par.
+          El número 8 es par, porque se puede repartir en dos grupos iguales: 4 y 4.
+        </button>
+      </div>
+
+      <div class="pasos-elegidos">
+        <h4>Tu orden:</h4>
+        <ol id="listaPasosElegidos"></ol>
+      </div>
+
+      <p id="mensajeJuego"></p>
+
+      <button onclick="reiniciarJuego()">Reiniciar juego</button>
+    </div>
+
+  </div>
+</section>
+
+    <section class="titulo-modulos">
+  <h2>Módulos interactivos</h2>
+  <p>
+    En esta sección podrás practicar mediante preguntas interactivas con 
+    retroalimentación automática y elementos de gamificación que harán el 
+    aprendizaje más dinámico y divertido.
+
+  </p>
+</section>
+
+    <section class="modulos" id="modulos"></section>
+
+    <section class="quiz-container oculto" id="quizContainer">
+      <button class="volver" onclick="volverInicio()">← Volver a módulos</button>
+
+      <h2 id="tituloModulo"></h2>
+      <p id="explicacionModulo"></p>
+
+      <div class="progreso">
+        <div id="barraProgreso"></div>
+      </div>
+
+      <div class="pregunta-card">
+        <h3 id="preguntaTexto"></h3>
+        <div id="opciones"></div>
+        <p id="retroalimentacion"></p>
+      </div>
+
+      <button class="siguiente oculto" id="btnSiguiente" onclick="siguientePregunta()">
+        Siguiente pregunta
+      </button>
+
+      <div class="resultado-final oculto" id="resultadoFinal"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Proyecto académico Universidad Nacional De Colombia - Prototipo funcional básico</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
