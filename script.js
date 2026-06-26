@@ -297,7 +297,7 @@ function revisarOrdenDemostracion() {
     mensaje.textContent = "🏆 ¡Excelente! Ordenaste correctamente la demostración.";
     mensaje.style.color = "#2ecc71";
   } else {
-    mensaje.textContent = "🔎 Casi. Revisa el orden: primero se explica qué es un número par, luego se construye la conclusión.";
+    mensaje.textContent = "🔎 Casi. Revisa el orden: Primero miramos la frase que nos dieron en el enunciado, luego se construye la conclusión.";
     mensaje.style.color = "#e74c3c";
   }
 }
